@@ -30,6 +30,12 @@ The network flow datasets constructed by various flow embedding methods.
 
 - [DNS-Based](./packet_content_based/dns_based/)
 
+## Method Description
+- In IP-Based dataset, watermark is embedded in IP ID filed.
+- In TCP-Based dataset, watermark is embedded in TCP Options filed.
+- In HTTP-Based dataset, watermark is embedded in HTTP user-agent filed.
+- In DNS-Based dataset, watermark is embedded in DNS Query question filed.
+
 ## Usage Instructions
 You can use Wireshark/Python ... to view each pcap file.
 
@@ -50,6 +56,10 @@ The data structure should be like this:
         /dns_based
             dns_1.pcap
             ...
+    ...
 ```
 
+## Version History
+- initial version: May 3, 2025
+## Contact Information
 _If you have any questions or need further assistance, please contact us via Contact Information._
