@@ -62,4 +62,4 @@ The data structure should be like this:
 ## Version History
 - initial version: May 3, 2025
 ## Contact Information
-_If you have any questions or need further assistance, please contact us via Contact Information._
+_If you have any questions or need further assistance, please contact us via [Contact Information](2331121322@tiangong.edu.cn)._
