@@ -11,6 +11,8 @@ The network flow datasets constructed by various flow embedding methods.
 ### Files
 - [LICENSE](./LICENSE): Specify the usage permissions of developers or organizations using the code.
 - [README.md](./README.md):Contains a basic introduction to this project.
+- [extract_arriveT_ipd.py](./extract_arriveT_ipd.py): Used to extract relevant features from pcap files
+    The required environment to be prepared：apt install python3-scapy
 ### Subfolders
 [WateramrkDA](./):Contains the network stream data set. Each method involves ten pcap files (for continuous collection)
 
