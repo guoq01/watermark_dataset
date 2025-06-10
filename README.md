@@ -5,7 +5,7 @@ The network flow datasets constructed by various flow embedding methods.
 
 ## Feature Description
 1. **Network Structure Description:** We have set up a one-way transmission local area network, which consists of four nodes and devices including sending, embedding, collecting and receiving. The IP address of the sending end is 192.168.5.11, and that of the receiving end is 192.168.8.12.
-2. **traffic description:**ICMP, SSH, IP, TCp, HTTP, DNS
+2. **traffic description:** ICMP, SSH, IP, TCp, HTTP, DNS
 
 ## Source Directory
 ### Files
