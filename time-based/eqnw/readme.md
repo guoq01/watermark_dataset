@@ -1,1 +1,0 @@
-Each pcap file contains around 200 packets.
