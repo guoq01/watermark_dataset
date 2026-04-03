@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import entropy
 from collections import Counter
-
+"""This is an example method, provided only for reference and inspiration."""
 class FeatureExtractor:
     def __init__(self, processed_csv_dir, output_dir="features"):
         self.processed_csv_dir = processed_csv_dir

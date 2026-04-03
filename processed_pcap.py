@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from scapy.all import rdpcap, IP, TCP, UDP, ICMP
 from tqdm import tqdm
-
+"""This is an example method, provided only for reference and inspiration."""
 class PCAPProcessor:
     def __init__(self, pcap_dir, output_dir="processed_pcap"):
         self.pcap_dir = pcap_dir

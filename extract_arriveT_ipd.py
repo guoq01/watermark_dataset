@@ -3,7 +3,7 @@ from scapy.layers.inet import IP
 import time
 import csv
 import os
-
+"""This is an example method, provided only for reference and inspiration."""
 # Get pcap file directory
 pcap_dir = './pcap' # Change it to your own address
 pcap_files = [f for f in os.listdir(pcap_dir) if f.endswith('.pcap')]

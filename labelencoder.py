@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-
+"""This is an example method, provided only for reference and inspiration."""
 class LabelEncoder:
     def __init__(self, feature_csv_path, output_dir="features"):
         self.feature_df = pd.read_csv(feature_csv_path)
