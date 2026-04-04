@@ -2,7 +2,7 @@
 
 # --- 本地配置 ---
 # 按顺序执行的脚本标识
-SCRIPT_ORDER=(HNFW SIBW rldjw frw hstw)
+SCRIPT_ORDER=(EQNW HNFW SIBW rldjw frw hstw)
 
 # 每个脚本各自执行的轮数
 declare -A TOTAL_ITERATIONS_MAP=(
@@ -28,15 +28,22 @@ declare -A SCRIPT_PATHS=(
 )
 
 # 不同脚本对应不同 pcap 输出目录
+# declare -A PCAP_DIRS=(
+#     [SIBW]="./time-based/sibw/icmp/"
+#     [HNFW]="./time-based/hnfw/icmp/"
+#     [EQNW]="./time-based/eqnw/icmp/"
+#     [rldjw]="./time-based/rldjw/icmp/"
+#     [frw]="./sequence-based/frw-trace/icmp/"
+#     [hstw]="./sequence-based/hstw/icmp/"
+# )
 declare -A PCAP_DIRS=(
-    [SIBW]="./time-based/sibw/icmp/"
-    [HNFW]="./time-based/hnfw/icmp/"
-    [EQNW]="./time-based/eqnw/icmp/"
-    [rldjw]="./time-based/rldjw/icmp/"
-    [frw]="./sequence-based/frw-trace/icmp/"
-    [hstw]="./sequence-based/hstw/icmp/"
+    [SIBW]="./time-based/sibw/ssh/"
+    [HNFW]="./time-based/hnfw/ssh/"
+    [EQNW]="./time-based/eqnw/ssh/"
+    [rldjw]="./time-based/rldjw/ssh/"
+    [frw]="./sequence-based/frw-trace/ssh/"
+    [hstw]="./sequence-based/hstw/ssh/"
 )
-
 # 本地抓包网卡
 CAPTURE_INTERFACE="ens224"
 
