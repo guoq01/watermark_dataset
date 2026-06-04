@@ -127,4 +127,12 @@ If embedding scripts use `netfilterqueue`, install the corresponding system depe
 4. Label mapping in `labelencoder.py` is currently filename-keyword based; update mapping when adding new methods.
 
 ## Contact
-If you have questions, contact: 2331121322@tiangong.edu.cn
+If you have questions, contact: guorqiang@126.com
+
+## Publication
+
+**Paper describing this work has been received in Frontiers of Computer Science (FCS) special column "Code & Data in Earth Science".**
+
+**Cited as**: Sibo Qiao, Qiang Guo, Zhiyuan Zhao, Min Wang. WatermarkingDA: A Diverse Dataset for Active Stream-Associated
+
+Watermarking Technology. Front. Comput. Sci., 2026, DOI: 10.1007/s11704-026-60707-6
