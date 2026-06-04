@@ -2,16 +2,16 @@
 
 # --- 本地配置 ---
 # 按顺序执行的脚本标识
-SCRIPT_ORDER=(EQNW HNFW SIBW rldjw frw hstw)
+SCRIPT_ORDER=(hstw)
 
 # 每个脚本各自执行的轮数
 declare -A TOTAL_ITERATIONS_MAP=(
     [SIBW]=250
-    [HNFW]=193
+    [HNFW]=250
     [EQNW]=250
     [rldjw]=250
     [frw]=250
-    [hstw]=250
+    [hstw]=85
 )
 
 # 轮数兜底值，防止新脚本未配置时脚本直接失败
@@ -28,22 +28,22 @@ declare -A SCRIPT_PATHS=(
 )
 
 # 不同脚本对应不同 pcap 输出目录
-# declare -A PCAP_DIRS=(
-#     [SIBW]="./time-based/sibw/icmp/"
-#     [HNFW]="./time-based/hnfw/icmp/"
-#     [EQNW]="./time-based/eqnw/icmp/"
-#     [rldjw]="./time-based/rldjw/icmp/"
-#     [frw]="./sequence-based/frw-trace/icmp/"
-#     [hstw]="./sequence-based/hstw/icmp/"
-# )
 declare -A PCAP_DIRS=(
-    [SIBW]="./time-based/sibw/ssh/"
-    [HNFW]="./time-based/hnfw/ssh/"
-    [EQNW]="./time-based/eqnw/ssh/"
-    [rldjw]="./time-based/rldjw/ssh/"
-    [frw]="./sequence-based/frw-trace/ssh/"
-    [hstw]="./sequence-based/hstw/ssh/"
+    [SIBW]="./time-based/sibw/icmp/"
+    [HNFW]="./time-based/hnfw/icmp/"
+    [EQNW]="./time-based/eqnw/icmp/"
+    [rldjw]="./time-based/rldjw/icmp/"
+    [frw]="./sequence-based/frw-trace/icmp/"
+    [hstw]="./sequence-based/hstw/icmp/"
 )
+# declare -A PCAP_DIRS=(
+#     [SIBW]="./time-based/sibw/ssh/"
+#     [HNFW]="./time-based/hnfw/ssh/"
+#     [EQNW]="./time-based/eqnw/ssh/"
+#     [rldjw]="./time-based/rldjw/ssh/"
+#     [frw]="./sequence-based/frw-trace/ssh/"
+#     [hstw]="./sequence-based/hstw/ssh/"
+# )
 # 本地抓包网卡
 CAPTURE_INTERFACE="ens224"
 
@@ -92,7 +92,7 @@ for ACTIVE_SCRIPT in "${SCRIPT_ORDER[@]}"; do
 
         # 在本地后台执行 Python 脚本
         echo "正在本地执行脚本..."
-        python3 "${LOCAL_SCRIPT_PATH}" &
+        python3 "${LOCAL_SCRIPT_PATH}" >/dev/null 2>&1 &
         SCRIPT_PID=$!
 
         # 继续等待剩余时间，确保本轮总时长不小于 CAPTURE_DURATION
@@ -107,6 +107,10 @@ for ACTIVE_SCRIPT in "${SCRIPT_ORDER[@]}"; do
             echo "抓包时间已到，停止 Python 脚本 (${SCRIPT_PID})..."
             kill "$SCRIPT_PID" 2>/dev/null
             wait "$SCRIPT_PID" 2>/dev/null
+
+            # 同步清理 iptables 规则与自定义链
+            sudo iptables -F
+            sudo iptables -X
         fi
 
         # 等待抓包进程结束（正常由 timeout 自动结束）
